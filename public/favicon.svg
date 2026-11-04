@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" fill="#171715"/>
+  <text x="50%" y="54%" font-family="'Cormorant Garamond', 'Georgia', serif" font-size="28" font-weight="600" fill="#F4F0E8" text-anchor="middle" dominant-baseline="middle" letter-spacing="2">RA</text>
+  <circle cx="32" cy="54" r="2" fill="#A58A60"/>
+</svg>
+
