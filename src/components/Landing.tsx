@@ -18,8 +18,8 @@ export const Landing: React.FC = () => {
   const navBarRef = useRef<HTMLElement>(null);
   const bottomMetaRef = useRef<HTMLDivElement>(null);
 
-  // Use the verified original close-up beauty portrait
-  const heroPhoto = ALL_PHOTOS.find((p) => p.id === 'hero-editorial-black') || ALL_PHOTOS[0];
+  // Use the verified bridal red wide portrait as requested
+  const heroPhoto = ALL_PHOTOS.find((p) => p.id === 'bridal-red-wide-spread') || ALL_PHOTOS[0];
 
   // 1. Scroll-Aware Navbar Styling
   useEffect(() => {
@@ -56,7 +56,7 @@ export const Landing: React.FC = () => {
       // Staggered letter dropping cascade (R -> I -> S -> H -> U)
       tl.to(activeLetters, {
         y: 0,
-        opacity: 0.35,
+        opacity: 1,
         duration: 0.95,
         ease: 'power3.out',
         stagger: 0.16,
@@ -107,12 +107,12 @@ export const Landing: React.FC = () => {
             src={heroPhoto.srcJpg}
             alt={heroPhoto.alt}
             loading="eager"
-            className="w-full h-full object-cover object-[50%_28%] sm:object-[50%_24%] filter grayscale contrast-[1.18] brightness-[0.92]"
+            className="w-full h-full object-cover object-[50%_35%] sm:object-[50%_30%] contrast-[1.05] brightness-[0.95]"
           />
         </picture>
 
-        {/* Subtle vignette / tonal scrim for refined edge contrast */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60 pointer-events-none" />
+        {/* Subtle tonal scrim tailored for warm bridal background contrast */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-black/40 pointer-events-none" />
       </div>
 
       {/* 2. Top Navigation Bar (Adjany Reference) */}
@@ -121,15 +121,15 @@ export const Landing: React.FC = () => {
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
             ? 'bg-white/95 backdrop-blur-md text-ink py-4 px-5 sm:px-10 border-b border-black/5 shadow-sm'
-            : 'bg-transparent text-white py-5 sm:py-7 px-5 sm:px-10'
+            : 'bg-transparent text-[#FAF7F2] py-5 sm:py-7 px-5 sm:px-10'
         }`}
       >
         <div className="w-full flex items-center justify-between">
-          {/* Wordmark (Assistant 700) */}
+          {/* Wordmark (Cormorant Garamond 600) */}
           <a
             href="#top"
             onClick={(e) => handleNavClick(e, '#top')}
-            className="font-assistant font-bold text-sm sm:text-base tracking-[0.14em] uppercase transition-opacity hover:opacity-75"
+            className="font-cormorant font-semibold text-lg sm:text-xl tracking-[0.16em] uppercase transition-opacity hover:opacity-80 [text-shadow:_0_1px_4px_rgba(20,10,5,0.7)]"
             aria-label="Rishu Aggarwal - Back to top"
           >
             {PROFILE_DATA.name}
@@ -140,14 +140,14 @@ export const Landing: React.FC = () => {
             <a
               href="#portfolio"
               onClick={(e) => handleNavClick(e, '#portfolio')}
-              className="hover:opacity-70 transition-opacity"
+              className="hover:text-[#F3D5A5] transition-colors [text-shadow:_0_1px_4px_rgba(20,10,5,0.7)]"
             >
               Portfolio
             </a>
             <a
               href="#contact"
               onClick={(e) => handleNavClick(e, '#contact')}
-              className="hover:opacity-70 transition-opacity"
+              className="hover:text-[#F3D5A5] transition-colors [text-shadow:_0_1px_4px_rgba(20,10,5,0.7)]"
             >
               Contact
             </a>
@@ -156,9 +156,9 @@ export const Landing: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram @rishu.slayy"
-              className="hover:opacity-70 transition-opacity flex items-center gap-1.5"
+              className="hover:text-[#F3D5A5] transition-colors flex items-center gap-1.5 [text-shadow:_0_1px_4px_rgba(20,10,5,0.7)]"
             >
-              <Instagram className="w-3.5 h-3.5" />
+              <Instagram className="w-3.5 h-3.5 text-[#DFC49C]" />
               <span className="hidden sm:inline normal-case text-xs">@rishu.slayy</span>
             </a>
           </nav>
@@ -172,13 +172,13 @@ export const Landing: React.FC = () => {
 
         {/* Center Composition */}
         <div className="w-full flex flex-col items-center justify-center my-auto pointer-events-auto">
-          {/* Name Dropping Animation (Adjany Reference: Staggered Cascade Letters) */}
+          {/* Name Dropping Animation (Adjany Reference: Staggered Cascade Letters in Editorial Serif) */}
           <div className="w-full flex items-center justify-center gap-5 sm:gap-10 md:gap-14 lg:gap-18 mb-6 select-none pointer-events-none">
             {NAME_LETTERS.map((letter, idx) => (
               <span
                 key={idx}
                 ref={(el) => (letterRefs.current[idx] = el)}
-                className="font-assistant font-light text-5xl sm:text-7xl md:text-8xl lg:text-9xl text-white/35 uppercase inline-block will-change-transform"
+                className="font-cormorant font-semibold text-6xl sm:text-8xl md:text-9xl lg:text-[10.5rem] tracking-[0.04em] text-[#FFFDF9] uppercase inline-block will-change-transform drop-shadow-[0_4px_18px_rgba(20,10,5,0.75)] [text-shadow:_0_2px_6px_rgba(20,10,5,0.65),_0_0_24px_rgba(255,245,230,0.3)]"
               >
                 {letter}
               </span>
@@ -188,29 +188,29 @@ export const Landing: React.FC = () => {
           {/* Centered In-Image Navigation (Adjany Reference: HOME | ABOUT | VISUALS | CONTACT) */}
           <div
             ref={centerMenuRef}
-            className="flex items-center justify-center gap-4 sm:gap-7 text-xs sm:text-sm font-jost uppercase tracking-[0.2em] text-white/95"
+            className="flex items-center justify-center gap-4 sm:gap-7 text-xs sm:text-sm font-jost uppercase tracking-[0.24em] text-[#FAF7F2] drop-shadow-[0_2px_8px_rgba(20,10,5,0.7)]"
           >
             <a
               href="#portfolio"
               onClick={(e) => handleNavClick(e, '#portfolio')}
-              className="hover:text-white transition-opacity hover:opacity-80 py-1"
+              className="hover:text-[#F3D5A5] transition-colors py-1 font-medium"
             >
               Portfolio
             </a>
-            <span className="text-white/40 font-light select-none">|</span>
+            <span className="text-[#DFC49C]/50 font-light select-none">|</span>
             <a
               href="#contact"
               onClick={(e) => handleNavClick(e, '#contact')}
-              className="hover:text-white transition-opacity hover:opacity-80 py-1"
+              className="hover:text-[#F3D5A5] transition-colors py-1 font-medium"
             >
               Contact
             </a>
-            <span className="text-white/40 font-light select-none">|</span>
+            <span className="text-[#DFC49C]/50 font-light select-none">|</span>
             <a
               href={PROFILE_DATA.contact.instagram.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-white transition-opacity hover:opacity-80 py-1 normal-case tracking-normal"
+              className="hover:text-[#F3D5A5] transition-colors py-1 normal-case tracking-normal font-normal"
             >
               @rishu.slayy
             </a>
@@ -220,11 +220,11 @@ export const Landing: React.FC = () => {
         {/* 4. Bottom Meta: Model Identifier & Subtle Scroll Cue */}
         <div
           ref={bottomMetaRef}
-          className="w-full flex items-end justify-between pointer-events-auto pt-4 text-white/80"
+          className="w-full flex items-end justify-between pointer-events-auto pt-4 text-[#F4EFE6]/90 [text-shadow:_0_1px_4px_rgba(20,10,5,0.7)]"
         >
           {/* Left: Identifier (Alegreya Sans) */}
           <div>
-            <p className="font-alegreya text-xs sm:text-sm uppercase tracking-wide font-normal">
+            <p className="font-alegreya text-xs sm:text-sm uppercase tracking-wider font-normal">
               Model · Ahmedabad, India
             </p>
           </div>
@@ -233,11 +233,11 @@ export const Landing: React.FC = () => {
           <a
             href="#portfolio"
             onClick={(e) => handleNavClick(e, '#portfolio')}
-            className="font-jost flex items-center gap-2 text-xs uppercase tracking-nav hover:text-white transition-all group"
+            className="font-jost flex items-center gap-2 text-xs uppercase tracking-nav hover:text-[#F3D5A5] transition-colors group"
             aria-label="Scroll down to view portfolio"
           >
             <span>Scroll</span>
-            <ArrowDown className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-y-1" />
+            <ArrowDown className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-y-1 text-[#DFC49C]" />
           </a>
         </div>
       </div>

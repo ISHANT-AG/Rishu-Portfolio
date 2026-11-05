@@ -10,7 +10,7 @@ export const Hero: React.FC = () => {
   const textRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
 
-  const heroPhoto = ALL_PHOTOS.find((p) => p.id === 'hero-editorial-black') || ALL_PHOTOS[0];
+  const heroPhoto = ALL_PHOTOS.find((p) => p.id === 'bridal-red-wide-spread') || ALL_PHOTOS[0];
 
   useEffect(() => {
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
